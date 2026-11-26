@@ -1,0 +1,67 @@
+name: Suggest a change
+description: Correct a figure, give a better source, fill a gap, or propose a fairer way to count.
+title: "Change: "
+labels: ["suggestion"]
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Thank you for checking. Every figure here rests on a source, so the most useful things you can give are
+        the source and the passage. How a suggestion is decided is in
+        [CONTRIBUTING.md](https://github.com/edgxhq/root-of-trust-galaxy/blob/main/CONTRIBUTING.md). Suggestions are
+        published under the graph's licence, CC BY 4.0.
+  - type: input
+    id: node
+    attributes:
+      label: Node
+      description: The node's file name without `.md`, such as `m-bitcoin-block-production`. Write "new" for something not in the graph yet.
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of change
+      options:
+        - A figure or fact is wrong or out of date
+        - A gap I can fill
+        - A better source for something already here
+        - A fairer way to count (a judgement call)
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: What should change
+      description: What the node says now, and what it should say.
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A link to the passage, not a front page. For a file in a repository, a link at a fixed commit.
+      placeholder: https://
+  - type: textarea
+    id: passage
+    attributes:
+      label: The passage
+      description: The words or the figure in the source that the change rests on.
+  - type: input
+    id: read-on
+    attributes:
+      label: When you read it
+      placeholder: YYYY-MM-DD
+  - type: dropdown
+    id: source-kind
+    attributes:
+      label: Kind of source
+      options:
+        - The primary source (the ledger, the code, or the organisation's own record)
+        - A news report, a blog or another secondary source
+        - I have not found a source yet
+  - type: textarea
+    id: reasons
+    attributes:
+      label: For a judgement call, your reasons
+      description: Why this way of counting is fairer, by the test in SCHEMA.md, which is the same for every network.
